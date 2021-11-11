@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export default (req, ev) => {
+export default async (req, ev) => {
     // console.log(req.headers);
     NextResponse.next();
 };

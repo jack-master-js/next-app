@@ -16,6 +16,13 @@ log4js.configure({
     },
 });
 
+// trace
+// debug
+// info
+// warn
+// error
+// fatal
+
 let logger;
 if (process.env.NODE_ENV === 'production') {
     logger = log4js.getLogger('prod');

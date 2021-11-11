@@ -2,7 +2,7 @@ import queryString from 'query-string';
 import store from 'store';
 import { message } from 'antd';
 
-export default (url, data = null, method = 'GET', headers = {}) => {
+export default (url, params, method = 'GET', headers = {}) => {
     let options = {
         method: method.toUpperCase(),
         headers: {
@@ -11,20 +11,21 @@ export default (url, data = null, method = 'GET', headers = {}) => {
             ...headers,
         },
     };
+
     let body = '';
 
-    if (data) {
+    if (params) {
         if (options.method === 'GET') {
-            if (typeof data === 'string') {
-                url = `${url}?${data}`;
+            if (typeof params === 'string') {
+                url = `${url}?${params}`;
             } else {
-                url = `${url}?${queryString.stringify(data)}`;
+                url = `${url}?${queryString.stringify(params)}`;
             }
         } else {
-            if (typeof data === 'string') {
-                body = data;
+            if (typeof params === 'string') {
+                body = params;
             } else {
-                body = JSON.stringify(data);
+                body = JSON.stringify(params);
             }
             options.body = body;
         }

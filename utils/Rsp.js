@@ -7,7 +7,7 @@ class Rsp {
 
     success() {
         const { method, url, body } = this.ctx.req;
-        logger.info(`${method} ${url} ${JSON.stringify(body)} success`);
+        logger.trace(`${method} ${url} ${JSON.stringify(body)} success`);
         this.ctx.res.send({
             success: true,
         });
@@ -15,10 +15,10 @@ class Rsp {
 
     content(content, count = 0) {
         const { method, url, body } = this.ctx.req;
-        logger.info(
-            `${method} ${url} ${JSON.stringify(body)} content: ${JSON.stringify(
-                content
-            )}`
+        logger.trace(
+            `${method} ${url} ${JSON.stringify(
+                body
+            )} response: ${JSON.stringify(content)}`
         );
         this.ctx.res.send({
             success: true,

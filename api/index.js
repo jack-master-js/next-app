@@ -1,5 +1,7 @@
 import request from '../utils/fetcher-backEnd';
 
-export const getUsers = (body) => {
-    return request('http://localhost:3000/api/users', body);
+const HOST = 'http://localhost:3000';
+
+export const getUsers = (params) => {
+    return request(`${HOST}/api/users`, params);
 };

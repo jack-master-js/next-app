@@ -1,7 +1,8 @@
-import 'antd/dist/antd.min.css';
+import { SWRConfig } from 'swr';
 import Layout from '../components/layout';
 import fetcher from '../utils/fetcher-frontEnd';
-import { SWRConfig } from 'swr';
+
+import 'antd/dist/antd.min.css';
 
 export default function MyApp({ Component, pageProps }) {
     return (

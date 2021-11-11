@@ -3,7 +3,7 @@ import useSWR from 'swr';
 
 export const useUsers = (init) => {
     const [filter, setFilter] = useState(init);
-    const body = useMemo(() => filter, [filter]);
-    const { data } = useSWR(['/api/users', body, 'post']);
-    return { data, setFilter };
+    const params = useMemo(() => filter, [filter]);
+    const { data } = useSWR(['/api/users', params, 'post']);
+    return { data, filter, setFilter };
 };
