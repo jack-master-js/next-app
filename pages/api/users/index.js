@@ -7,11 +7,11 @@ export default async (req, res) => {
     try {
         switch (method) {
             case 'GET':
-                rsp.success();
+                rsp.content(query);
                 break;
 
             case 'POST':
-                rsp.success();
+                rsp.content(body);
                 break;
 
             case 'PUT':
