@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from 'antd';
-import { useUsers } from '@/hooks';
-import { getUsers } from '@/api';
+import { useUsers } from '@/hooks/user';
+import { getUsers } from '@/api/backEnd';
 
 export default ({ ssrData }) => {
     const { data, filter, setFilter } = useUsers({

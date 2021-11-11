@@ -3,8 +3,8 @@
         "baseUrl": ".",
         "paths": {
             "@/components/*": ["components/*"],
-            "@/api": ["api"],
-            "@/hooks": ["hooks"],
+            "@/api/*": ["api/*"],
+            "@/hooks/*": ["hooks/*"],
             "@/utils/*": ["utils/*"]
         }
     }
