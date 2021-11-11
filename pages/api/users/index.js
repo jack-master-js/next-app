@@ -1,4 +1,4 @@
-import Rsp from '../../../utils/Rsp';
+import Rsp from '@/utils/Rsp';
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 

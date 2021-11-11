@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from 'antd';
-import { useUsers } from '../hooks';
-import * as api from '../api';
+import { useUsers } from '@/hooks';
+import { getUsers } from '@/api';
 
 export default ({ ssrData }) => {
     const { data, filter, setFilter } = useUsers({
@@ -24,7 +24,7 @@ export default ({ ssrData }) => {
 };
 
 export async function getServerSideProps(context) {
-    const ssrData = await api.getUsers({ msg: 'from ssr' });
+    const ssrData = await getUsers({ msg: 'from ssr' });
     return {
         props: { ssrData },
     };

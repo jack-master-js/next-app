@@ -1,6 +1,6 @@
 import { SWRConfig } from 'swr';
-import Layout from '../components/layout';
-import fetcher from '../utils/fetcher-frontEnd';
+import Layout from '@/components/layout';
+import fetcher from '@/utils/fetcher-frontEnd';
 
 import 'antd/dist/antd.min.css';
 

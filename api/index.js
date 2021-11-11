@@ -1,4 +1,4 @@
-import request from '../utils/fetcher-backEnd';
+import request from '@/utils/fetcher-backEnd';
 
 const HOST = 'http://localhost:3000';
 
