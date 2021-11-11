@@ -4,11 +4,17 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "pull": "npx prisma db pull",
+        "push": "npx prisma db push",
+        "generate": "npx prisma generate",
+        "migrate": "npx prisma migrate dev"
     },
     "dependencies": {
+        "@prisma/client": "^3.4.2",
         "log4js": "^6.3.0",
         "next": "^12.0.3",
+        "prisma": "^3.4.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
     },

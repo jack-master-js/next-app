@@ -1,4 +1,6 @@
 import Rsp from '../../../utils/Rsp';
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 export default async (req, res) => {
     const rsp = new Rsp(req, res);
@@ -7,7 +9,8 @@ export default async (req, res) => {
     try {
         switch (method) {
             case 'GET':
-                rsp.content(query);
+                const rst = await prisma.user.findMany();
+                rsp.content(rst);
                 break;
 
             case 'POST':
