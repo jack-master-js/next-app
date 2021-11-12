@@ -11,7 +11,7 @@ export default ({ Component, pageProps }) => {
         <>
             <Head>
                 <title>Next APP</title>
-                <script src="/config.js"></script>
+                {/* <script src="/config.js"></script> */}
             </Head>
             {/* <Script src="/config.js" /> */}
             <SWRConfig

@@ -1,12 +1,12 @@
 import qs from 'query-string';
 import store from 'store';
 import { message } from 'antd';
-import { API_HOST } from '@/utils/const';
+// import { API_HOST } from '@/utils/const';
 
-const host = typeof window !== 'undefined' ? _config.API_HOST : API_HOST;
+// const host = typeof window !== 'undefined' ? _config.API_HOST : API_HOST;
 
 export default (url, params, method = 'GET', headers = {}) => {
-    url = host + url;
+    // url = host + url;
     let options = {
         method: method.toUpperCase(),
         headers: {
