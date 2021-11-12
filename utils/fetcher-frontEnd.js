@@ -1,8 +1,12 @@
-import queryString from 'query-string';
+import qs from 'query-string';
 import store from 'store';
 import { message } from 'antd';
+import { apiHost } from '@/utils/config';
+
+const host = typeof window !== 'undefined' ? _config.apiHost : apiHost;
 
 export default (url, params, method = 'GET', headers = {}) => {
+    url = host + url;
     let options = {
         method: method.toUpperCase(),
         headers: {
@@ -19,7 +23,7 @@ export default (url, params, method = 'GET', headers = {}) => {
             if (typeof params === 'string') {
                 url = `${url}?${params}`;
             } else {
-                url = `${url}?${queryString.stringify(params)}`;
+                url = `${url}?${qs.stringify(params)}`;
             }
         } else {
             if (typeof params === 'string') {

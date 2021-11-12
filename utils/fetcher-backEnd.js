@@ -1,4 +1,4 @@
-import queryString from 'querystring';
+import qs from 'query-string';
 
 export default (url, params, method = 'GET', headers = {}) => {
     let options = {
@@ -16,7 +16,7 @@ export default (url, params, method = 'GET', headers = {}) => {
             if (typeof params === 'string') {
                 url = `${url}?${params}`;
             } else {
-                url = `${url}?${queryString.stringify(params)}`;
+                url = `${url}?${qs.stringify(params)}`;
             }
         } else {
             if (typeof params === 'string') {
