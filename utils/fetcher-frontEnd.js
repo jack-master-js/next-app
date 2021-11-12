@@ -1,9 +1,9 @@
 import qs from 'query-string';
 import store from 'store';
 import { message } from 'antd';
-import { apiHost } from '@/utils/config';
+import { API_HOST } from '@/utils/const';
 
-const host = typeof window !== 'undefined' ? _config.apiHost : apiHost;
+const host = typeof window !== 'undefined' ? _config.API_HOST : API_HOST;
 
 export default (url, params, method = 'GET', headers = {}) => {
     url = host + url;
