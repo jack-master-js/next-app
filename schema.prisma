@@ -7,6 +7,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//用户表
 model User {
   id      Int      @id @default(autoincrement())
   name    String   @db.VarChar(200) //姓名
@@ -14,9 +15,10 @@ model User {
   profile Profile?
 }
 
+//用户简介表
 model Profile {
   id      Int    @id @default(autoincrement())
   user    User   @relation(fields: [userId], references: [id])
-  userId  Int    @unique //所属用户
+  userId  Int    @unique
   address String //地址
 }
