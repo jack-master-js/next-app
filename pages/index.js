@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from 'antd';
+import { useGlobal } from '@/hooks/global';
 import { useUsers } from '@/hooks/user';
 import dynamic from 'next/dynamic';
 import * as apiFrontEnd from '@/fetcher/frontEnd';
@@ -9,6 +10,7 @@ const Modal = dynamic(() => import('@/components/modal'));
 
 export default ({ ssrData }) => {
     const modalRef = {};
+    const { state, dispatch } = useGlobal();
     const { data, filter, setFilter } = useUsers({
         pageIndex: 1,
         pageSize: 10,
@@ -22,12 +24,22 @@ export default ({ ssrData }) => {
         <>
             <Button
                 onClick={() => {
+                    dispatch({ type: 'change_name', payload: 'global user 1' });
                     setFilter({ ...filter, from: 'button' });
                     modalRef.show();
                 }}
             >
                 button
             </Button>
+            <Button
+                type="primary"
+                onClick={() => {
+                    dispatch({ type: 'reset' });
+                }}
+            >
+                reset
+            </Button>
+            <div>{JSON.stringify(state)}</div>
             <div>{JSON.stringify(data)}</div>
             {/* <div>{JSON.stringify(ssrData)}</div> */}
             <Modal onRef={modalRef}></Modal>

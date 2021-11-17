@@ -13,7 +13,7 @@ export default ({ Component, pageProps }) => {
                 <title>Next APP</title>
                 {/* <script src="/config.js"></script> */}
             </Head>
-            {/* <Script src="/config.js" /> */}
+            {/* <Script src="/config.js" strategy="afterInteractive" /> */}
             <SWRConfig
                 value={{
                     fetcher,
