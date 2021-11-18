@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Button } from 'antd';
 import { useGlobal } from '@/hooks/global';
-import { useUsers } from '@/hooks/user';
+import { useUsers } from '@/hooks/users';
 import dynamic from 'next/dynamic';
-import * as apiFrontEnd from '@/fetcher/frontEnd';
-// import * as apiBackEnd from '@/fetcher/backEnd';
+import * as apiFrontEnd from '@/requests/frontend';
+// import * as apiBackEnd from '@/requests/backEnd';
 
 const Modal = dynamic(() => import('@/components/modal'));
 

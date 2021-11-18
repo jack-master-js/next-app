@@ -2,7 +2,7 @@ import { SWRConfig } from 'swr';
 import Head from 'next/head';
 // import Script from 'next/script';
 import Layout from '@/components/layout';
-import fetcher from '@/utils/fetcher-frontEnd';
+import fetcher from '@/utils/fetcher-frontend';
 
 import 'antd/dist/antd.min.css';
 
