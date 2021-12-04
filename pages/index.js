@@ -22,26 +22,31 @@ export default ({ ssrData }) => {
 
     return (
         <>
-            <Button
-                onClick={() => {
-                    dispatch({ type: 'change_name', payload: 'global user 1' });
-                    setFilter({ ...filter, from: 'button' });
-                    modalRef.show();
-                }}
-            >
-                button
-            </Button>
-            <Button
-                type="primary"
-                onClick={() => {
-                    dispatch({ type: 'reset' });
-                }}
-            >
-                reset
-            </Button>
-            <div>{JSON.stringify(state)}</div>
-            <div>{JSON.stringify(data)}</div>
-            {/* <div>{JSON.stringify(ssrData)}</div> */}
+            <div className={`container mx-auto`}>
+                <Button
+                    onClick={() => {
+                        dispatch({
+                            type: 'change_name',
+                            payload: 'global user 1',
+                        });
+                        setFilter({ ...filter, from: 'button' });
+                        modalRef.show();
+                    }}
+                >
+                    button
+                </Button>
+                <Button
+                    type="primary"
+                    onClick={() => {
+                        dispatch({ type: 'reset' });
+                    }}
+                >
+                    reset
+                </Button>
+                <div>{JSON.stringify(state)}</div>
+                <div>{JSON.stringify(data)}</div>
+                {/* <div>{JSON.stringify(ssrData)}</div> */}
+            </div>
             <Modal onRef={modalRef}></Modal>
         </>
     );

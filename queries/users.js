@@ -1,6 +1,6 @@
-// import { PrismaClient } from '@prisma/client';
-// const prisma = new PrismaClient();
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 export const getUsers = () => {
-    // return prisma.user.findMany();
+    return prisma.user.findMany();
 };

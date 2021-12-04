@@ -1,5 +1,5 @@
 import Rsp from '@/utils/Rsp';
-// import {getUsers} from '@/queries/users'
+import { getUsers } from '@/queries/users';
 
 export default async (req, res) => {
     const rsp = new Rsp(req, res);
@@ -8,8 +8,7 @@ export default async (req, res) => {
     try {
         switch (method) {
             case 'GET':
-                // const rst = await getUsers();
-                const rst = { msg: 'hi' };
+                const rst = await getUsers();
                 rsp.content(rst);
                 break;
 

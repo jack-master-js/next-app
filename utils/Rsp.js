@@ -1,4 +1,4 @@
-// import logger from '@/utils/logger';
+import logger from '@/utils/logger';
 
 class Rsp {
     constructor(req, res) {
@@ -7,7 +7,7 @@ class Rsp {
 
     success() {
         const { method, url, body } = this.ctx.req;
-        // logger.trace(`${method} ${url} ${JSON.stringify(body)} success`);
+        logger.trace(`${method} ${url} ${JSON.stringify(body)} success`);
         this.ctx.res.send({
             success: true,
         });
@@ -15,11 +15,11 @@ class Rsp {
 
     content(content, count = 0) {
         const { method, url, body } = this.ctx.req;
-        // logger.trace(
-        //     `${method} ${url} ${JSON.stringify(
-        //         body
-        //     )} response: ${JSON.stringify(content)}`
-        // );
+        logger.trace(
+            `${method} ${url} ${JSON.stringify(
+                body
+            )} response: ${JSON.stringify(content)}`
+        );
         this.ctx.res.send({
             success: true,
             content,
@@ -29,11 +29,11 @@ class Rsp {
 
     error({ message }) {
         const { method, url, body } = this.ctx.req;
-        // logger.error(
-        //     `${method} ${url} ${JSON.stringify(body)} error: ${JSON.stringify(
-        //         message
-        //     )}`
-        // );
+        logger.error(
+            `${method} ${url} ${JSON.stringify(body)} error: ${JSON.stringify(
+                message
+            )}`
+        );
         this.ctx.res.send({
             success: false,
             message,
