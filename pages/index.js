@@ -4,7 +4,7 @@ import { useGlobal } from '@/hooks/global';
 import { useUsers } from '@/hooks/users';
 import dynamic from 'next/dynamic';
 import * as apiFrontEnd from '@/requests/frontend';
-// import * as apiBackEnd from '@/requests/backEnd';
+import * as apiBackEnd from '@/requests/backEnd';
 
 const Modal = dynamic(() => import('@/components/modal'));
 
@@ -45,16 +45,16 @@ export default ({ ssrData }) => {
                 </Button>
                 <div>{JSON.stringify(state)}</div>
                 <div>{JSON.stringify(data)}</div>
-                {/* <div>{JSON.stringify(ssrData)}</div> */}
+                <div>{JSON.stringify(ssrData)}</div>
             </div>
             <Modal onRef={modalRef}></Modal>
         </>
     );
 };
 
-// export async function getServerSideProps(context) {
-//     const ssrData = await apiBackEnd.getUsers({ msg: 'from ssr' });
-//     return {
-//         props: { ssrData },
-//     };
-// }
+export async function getServerSideProps(context) {
+    const ssrData = await apiBackEnd.getUsers({ msg: 'from ssr' });
+    return {
+        props: { ssrData },
+    };
+}
