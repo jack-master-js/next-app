@@ -1,8 +1,8 @@
 import { SWRConfig } from 'swr';
 import Head from 'next/head';
-import Script from 'next/script';
+// import Script from 'next/script';
 import Layout from '@/components/layout';
-import fetcher from '@/utils/fetcher-frontend';
+import fetcher from '@/utils/fetcher';
 
 import 'antd/dist/antd.min.css';
 import 'tailwindcss/tailwind.css';

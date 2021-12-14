@@ -3,20 +3,24 @@ import store from 'store';
 import { message } from 'antd';
 
 const API_HOST = 'http://localhost:3000';
-const host = typeof window !== 'undefined' ? _config.API_HOST : API_HOST;
+const apiHost = typeof window !== 'undefined' ? _config.API_HOST : API_HOST;
 
-export default (url, params, method = 'GET', headers = {}) => {
-    url = host + url;
+export default (uri, params, method = 'GET', target = 'API_HOST') => {
+    let url = '';
+    let body = '';
     let options = {
         method: method.toUpperCase(),
         headers: {
             'Content-Type': 'application/json',
             Authorization: store.get('access_token') || '',
-            ...headers,
         },
     };
 
-    let body = '';
+    switch (target) {
+        case 'API_HOST':
+            url = apiHost + uri;
+            break;
+    }
 
     if (params) {
         if (options.method === 'GET') {

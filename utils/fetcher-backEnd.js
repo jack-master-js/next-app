@@ -1,6 +1,7 @@
 import qs from 'query-string';
 
 export default (url, params, method = 'GET', headers = {}) => {
+    let body = '';
     let options = {
         method: method.toUpperCase(),
         headers: {
@@ -8,8 +9,6 @@ export default (url, params, method = 'GET', headers = {}) => {
             ...headers,
         },
     };
-
-    let body = '';
 
     if (params) {
         if (options.method === 'GET') {
