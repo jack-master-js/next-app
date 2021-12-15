@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from 'antd';
 
-export default ({ onRef }) => {
+export default function myModal({ onRef }) {
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const showModal = () => {
@@ -34,4 +34,4 @@ export default ({ onRef }) => {
             </Modal>
         </>
     );
-};
+}

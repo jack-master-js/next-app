@@ -7,7 +7,7 @@ import fetcher from '@/utils/fetcher';
 import 'antd/dist/antd.min.css';
 import 'tailwindcss/tailwind.css';
 
-export default ({ Component, pageProps }) => {
+export default function myApp({ Component, pageProps }) {
     return (
         <>
             <Head>
@@ -27,4 +27,4 @@ export default ({ Component, pageProps }) => {
             </SWRConfig>
         </>
     );
-};
+}

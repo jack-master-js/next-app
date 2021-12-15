@@ -1,7 +1,7 @@
 import Rsp from '@/utils/Rsp';
 import { getUsers } from '@/queries/users';
 
-export default async (req, res) => {
+export default async function userService(req, res) {
     const rsp = new Rsp(req, res);
     const { method, body, query } = req;
 
@@ -31,4 +31,4 @@ export default async (req, res) => {
     } catch (error) {
         rsp.error(error);
     }
-};
+}

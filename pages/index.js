@@ -8,7 +8,7 @@ import * as apiBackEnd from '@/requests/backEnd';
 
 const Modal = dynamic(() => import('@/components/modal'));
 
-export default ({ ssrData }) => {
+export default function indexPage({ ssrData }) {
     const modalRef = {};
     const { state, dispatch } = useGlobal();
     const { data, filter, setFilter } = useUsers({
@@ -50,7 +50,7 @@ export default ({ ssrData }) => {
             <Modal onRef={modalRef}></Modal>
         </>
     );
-};
+}
 
 export async function getServerSideProps(context) {
     const ssrData = await apiBackEnd.getUsers({ msg: 'from ssr' });
