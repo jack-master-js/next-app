@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Button } from 'antd';
 import { useGlobal } from '@/hooks/global';
 import { useUsers } from '@/hooks/users';
