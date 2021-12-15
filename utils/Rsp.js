@@ -1,6 +1,6 @@
 import logger from '@/utils/logger';
 
-class Rsp {
+export default class Rsp {
     constructor(req, res) {
         this.ctx = { req, res };
     }
@@ -40,5 +40,3 @@ class Rsp {
         });
     }
 }
-
-export default Rsp;

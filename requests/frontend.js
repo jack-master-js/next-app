@@ -1,5 +1,5 @@
 import request from '@/utils/fetcher';
 
-export const getUsers = (params) => {
+export function getUsers(params) {
     return request(`/api/users`, params);
-};
+}

@@ -4,17 +4,17 @@ import { Modal } from 'antd';
 export default function myModal({ onRef }) {
     const [isModalVisible, setIsModalVisible] = useState(false);
 
-    const showModal = () => {
+    function showModal() {
         setIsModalVisible(true);
-    };
+    }
 
-    const handleOk = () => {
+    function handleOk() {
         setIsModalVisible(false);
-    };
+    }
 
-    const handleCancel = () => {
+    function handleCancel() {
         setIsModalVisible(false);
-    };
+    }
 
     useEffect(() => {
         onRef.show = showModal;

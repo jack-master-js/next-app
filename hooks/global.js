@@ -6,6 +6,7 @@ function init() {
         age: 30,
     };
 }
+
 function reducer(state, action) {
     switch (action.type) {
         case 'change_name':
@@ -27,7 +28,7 @@ function reducer(state, action) {
     return state;
 }
 
-export const useGlobal = () => {
+export function useGlobal() {
     const [state, dispatch] = useReducer(reducer, undefined, init);
     return { state, dispatch };
-};
+}
