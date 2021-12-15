@@ -1,27 +1,27 @@
-import Rsp from '@/utils/Rsp';
+import rsp_middleware from '@/utils/rsp-middleware';
 import { getUsers } from '@/queries/users';
 
 export default async function userService(req, res) {
-    const rsp = new Rsp(req, res);
+    rsp_middleware(req, res);
     const { method, body, query } = req;
 
     try {
         switch (method) {
             case 'GET':
                 const rst = await getUsers();
-                rsp.content(rst);
+                res.content(rst);
                 break;
 
             case 'POST':
-                rsp.content(body);
+                res.content(body);
                 break;
 
             case 'PUT':
-                rsp.success();
+                res.success();
                 break;
 
             case 'DELETE':
-                rsp.success();
+                res.success();
                 break;
 
             default:
@@ -29,6 +29,6 @@ export default async function userService(req, res) {
                 break;
         }
     } catch (error) {
-        rsp.error(error);
+        res.error(error);
     }
 }

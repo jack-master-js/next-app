@@ -1,42 +1,39 @@
 import logger from '@/utils/logger';
 
-export default class Rsp {
-    constructor(req, res) {
-        this.ctx = { req, res };
-    }
-
-    success() {
-        const { method, url, body } = this.ctx.req;
+export default (req, res) => {
+    res.success = () => {
+        const { method, url, body } = req;
         logger.trace(`${method} ${url} ${JSON.stringify(body)} success`);
-        this.ctx.res.send({
+        res.send({
             success: true,
         });
-    }
+    };
 
-    content(content, count = 0) {
-        const { method, url, body } = this.ctx.req;
+    res.content = (content, count = 0) => {
+        const { method, url, body } = req;
         logger.trace(
             `${method} ${url} ${JSON.stringify(
                 body
             )} response: ${JSON.stringify(content)}`
         );
-        this.ctx.res.send({
+        res.send({
             success: true,
             content,
             count,
         });
-    }
+    };
 
-    error({ message }) {
-        const { method, url, body } = this.ctx.req;
+    res.error = (error) => {
+        const { message } = error;
+        const { method, url, body } = req;
         logger.error(
             `${method} ${url} ${JSON.stringify(body)} error: ${JSON.stringify(
                 message
             )}`
         );
-        this.ctx.res.send({
+        res.send({
             success: false,
             message,
         });
-    }
-}
+    };
+};

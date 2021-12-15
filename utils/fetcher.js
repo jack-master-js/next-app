@@ -3,8 +3,8 @@ import store from 'store';
 import { message } from 'antd';
 
 const API_HOST = 'http://localhost:3000';
-const apiHost = typeof window !== 'undefined' ? _config.API_HOST : API_HOST;
-// const apiHost = process.env.NEXT_PUBLIC_API_HOST || API_HOST;
+// const apiHost = typeof window !== 'undefined' ? _config.API_HOST : API_HOST;
+const apiHost = process.env.NEXT_PUBLIC_API_HOST || API_HOST;
 
 export default (uri, params, method = 'GET', target = 'API_HOST') => {
     let url = '';
