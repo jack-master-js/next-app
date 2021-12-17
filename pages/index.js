@@ -53,7 +53,7 @@ export default function indexPage({ ssrData }) {
 }
 
 export async function getServerSideProps(context) {
-    const ssrData = await apiBackEnd.getUsers({ msg: 'from ssr' });
+    const ssrData = await apiBackEnd.getUsers({ msg: 'from SSR' });
     return {
         props: { ssrData },
     };
