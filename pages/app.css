@@ -1,3 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-text {
+    width: 200px;
+    @apply text-lg text-justify leading-10;
+}
+
 .markdown {
     @apply text-lg leading-relaxed;
 }

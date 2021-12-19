@@ -1,4 +1,3 @@
-import markdownStyles from './markdown-styles.module.css';
 import { getAllPosts, getPostBySlug, markdownToHtml } from '@/utils/markdown';
 
 export default function PostBody({ post }) {
@@ -6,7 +5,7 @@ export default function PostBody({ post }) {
         <div>
             <div>{JSON.stringify(post)}</div>
             <div
-                className={markdownStyles['markdown']}
+                className="markdown"
                 dangerouslySetInnerHTML={{ __html: post.content }}
             />
         </div>
