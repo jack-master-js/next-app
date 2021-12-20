@@ -65,7 +65,7 @@ export default function indexPage({ ssrData }) {
                 <div className="aspect-none md:aspect-w-16 md:aspect-h-9">
                     <img
                         src="/assets/jj.jpeg"
-                        class="w-full h-full object-center object-cover"
+                        className="w-full h-full object-center object-cover"
                     />
                 </div>
             </div>
