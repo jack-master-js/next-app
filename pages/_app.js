@@ -5,7 +5,7 @@ import Layout from '@/components/layout';
 import fetcher from '@/utils/fetcher';
 
 import 'antd/dist/antd.min.css';
-import './app.css';
+import './_app.css';
 
 export default function myApp({ Component, pageProps }) {
     return (

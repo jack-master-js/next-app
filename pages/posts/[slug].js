@@ -5,7 +5,7 @@ export default function PostBody({ post }) {
         <div>
             <div>{JSON.stringify(post)}</div>
             <div
-                className="markdown"
+                className="prose lg:prose-xl"
                 dangerouslySetInnerHTML={{ __html: post.content }}
             />
         </div>

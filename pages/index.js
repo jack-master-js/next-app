@@ -46,7 +46,15 @@ export default function indexPage({ ssrData }) {
                 <div>{JSON.stringify(state)}</div>
                 <div>{JSON.stringify(data)}</div>
                 <div>{JSON.stringify(ssrData)}</div>
-                <p className="my-text">
+                <input type="text" className="form-input" />
+                <input type="datetime-local" className="form-input" />
+                <select className="form-select">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <p className="my-text line-clamp-3">
                     So I started to walk into the water. I won't lie to you
                     boys, I was terrified. But I pressed on, and as I made my
                     way past the breakers a strange calm came over me. I don't
@@ -54,6 +62,12 @@ export default function indexPage({ ssrData }) {
                     living things but I tell you Jerry at that moment, I was a
                     marine biologist.
                 </p>
+                <div className="aspect-none md:aspect-w-16 md:aspect-h-9">
+                    <img
+                        src="/assets/jj.jpeg"
+                        class="w-full h-full object-center object-cover"
+                    />
+                </div>
             </div>
 
             <Modal onRef={modalRef}></Modal>
