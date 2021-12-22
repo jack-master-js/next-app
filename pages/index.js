@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Button } from 'antd';
-import { useGlobal } from '@/hooks/global';
+import { useGlobalState } from '@/hooks/global';
 import { useUsers } from '@/hooks/users';
 import dynamic from 'next/dynamic';
 import * as apiFrontEnd from '@/requests/frontend';
@@ -10,7 +10,7 @@ const Modal = dynamic(() => import('@/components/modal'));
 
 export default function indexPage({ ssrData }) {
     const modalRef = {};
-    const { state, dispatch } = useGlobal();
+    const [state, dispatch] = useGlobalState();
     const { data, filter, setFilter } = useUsers({
         pageIndex: 1,
         pageSize: 10,
@@ -38,7 +38,7 @@ export default function indexPage({ ssrData }) {
                 <Button
                     onClick={() => {
                         dispatch({
-                            type: 'reset',
+                            type: 'reset_name',
                         });
                     }}
                 >

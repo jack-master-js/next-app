@@ -1,34 +1,49 @@
-import { useReducer } from 'react';
+import { createContext, useContext, useReducer } from 'react';
+import { produce } from 'immer';
 
-function init() {
-    return {
+//initial
+const state = {
+    user: {
         name: 'global user',
-        age: 30,
+    },
+};
+
+//reducer
+function reducer({ user }, action) {
+    // middleware goes here, i.e calling analytics service, etc.
+    return {
+        user: userReducer(user, action),
     };
 }
 
-function reducer(state, action) {
-    switch (action.type) {
-        case 'change_name':
-            state.name = action.payload;
-            break;
+function userReducer(user, action) {
+    return produce(user, (draft) => {
+        switch (action.type) {
+            case 'change_name': {
+                draft.name = action.payload;
+                break;
+            }
 
-        case 'change_age':
-            state.age = action.payload;
-            break;
+            case 'reset_name': {
+                draft.name = 'global user';
+                break;
+            }
 
-        case 'reset':
-            state = init();
-            break;
-
-        default:
-            throw Error();
-            break;
-    }
-    return state;
+            default:
+                throw Error('no such reducer!');
+        }
+    });
 }
 
-export function useGlobal() {
-    const [state, dispatch] = useReducer(reducer, undefined, init);
-    return { state, dispatch };
-}
+//Context
+const StateContext = createContext();
+
+//Provider
+export const StateProvider = ({ children }) => (
+    <StateContext.Provider value={useReducer(reducer, state)}>
+        {children}
+    </StateContext.Provider>
+);
+
+//Global State
+export const useGlobalState = () => useContext(StateContext);

@@ -28,6 +28,7 @@
         "antd": "^4.16.13",
         "autoprefixer": "^10.4.0",
         "gray-matter": "^4.0.3",
+        "immer": "^9.0.7",
         "postcss": "^8.4.5",
         "remark": "^14.0.2",
         "remark-gfm": "^3.0.1",

@@ -3,6 +3,7 @@ import Head from 'next/head';
 // import Script from 'next/script';
 import Layout from '@/components/layout';
 import fetcher from '@/utils/fetcher';
+import { StateProvider } from '@/hooks/global';
 
 import 'antd/dist/antd.min.css';
 import './_app.css';
@@ -21,9 +22,11 @@ export default function myApp({ Component, pageProps }) {
                     revalidateOnFocus: false,
                 }}
             >
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
+                <StateProvider>
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                </StateProvider>
             </SWRConfig>
         </>
     );

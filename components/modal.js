@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Modal, Button } from 'antd';
-import { useGlobal } from '@/hooks/global';
+import { useGlobalState } from '@/hooks/global';
 
 export default function myModal({ onRef }) {
-    const { state, dispatch } = useGlobal();
+    const [state, dispatch] = useGlobalState();
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     function showModal() {
@@ -40,15 +40,6 @@ export default function myModal({ onRef }) {
                     }}
                 >
                     button
-                </Button>
-                <Button
-                    onClick={() => {
-                        dispatch({
-                            type: 'reset',
-                        });
-                    }}
-                >
-                    button2
                 </Button>
             </Modal>
         </>
