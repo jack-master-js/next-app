@@ -36,9 +36,10 @@ export default function indexPage({ ssrData }) {
                     button
                 </Button>
                 <Button
-                    type="primary"
                     onClick={() => {
-                        dispatch({ type: 'reset' });
+                        dispatch({
+                            type: 'reset',
+                        });
                     }}
                 >
                     reset

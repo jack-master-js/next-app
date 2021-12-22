@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
+import { useGlobal } from '@/hooks/global';
 
 export default function myModal({ onRef }) {
+    const { state, dispatch } = useGlobal();
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     function showModal() {
@@ -28,9 +30,26 @@ export default function myModal({ onRef }) {
                 onOk={handleOk}
                 onCancel={handleCancel}
             >
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <p>{JSON.stringify(state)}</p>
+                <Button
+                    onClick={() => {
+                        dispatch({
+                            type: 'change_name',
+                            payload: 'global user 2',
+                        });
+                    }}
+                >
+                    button
+                </Button>
+                <Button
+                    onClick={() => {
+                        dispatch({
+                            type: 'reset',
+                        });
+                    }}
+                >
+                    button2
+                </Button>
             </Modal>
         </>
     );
