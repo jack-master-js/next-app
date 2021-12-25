@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from 'react';
 import { produce } from 'immer';
 
 //initial
-const state = {
+const initialState = {
     user: {
         name: 'global user',
     },
@@ -40,7 +40,7 @@ const StateContext = createContext();
 
 //Provider
 export const StateProvider = ({ children }) => (
-    <StateContext.Provider value={useReducer(reducer, state)}>
+    <StateContext.Provider value={useReducer(reducer, initialState)}>
         {children}
     </StateContext.Provider>
 );
