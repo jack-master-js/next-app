@@ -2,26 +2,16 @@ import qs from 'query-string';
 import store from 'store';
 import { message } from 'antd';
 
-const API_HOST = 'http://localhost:3000';
-// const apiHost = typeof window !== 'undefined' ? _config.API_HOST : API_HOST;
-const apiHost = process.env.NEXT_PUBLIC_API_HOST || API_HOST;
-
-export default (uri, params, method = 'GET', target = 'API_HOST') => {
-    let url = '';
+export default (url, params, method = 'GET', headers = {}) => {
     let body = '';
     let options = {
         method: method.toUpperCase(),
         headers: {
             'Content-Type': 'application/json',
             Authorization: store.get('access_token') || '',
+            ...headers,
         },
     };
-
-    switch (target) {
-        case 'API_HOST':
-            url = apiHost + uri;
-            break;
-    }
 
     if (params) {
         if (options.method === 'GET') {
