@@ -6,7 +6,7 @@ import fetcher from '@/utils/fetcher-frontend';
 import { StateProvider } from '@/hooks/global';
 
 import 'antd/dist/antd.min.css';
-import './_app.css';
+import './_app.scss';
 
 export default function myApp({ Component, pageProps }) {
     return (
