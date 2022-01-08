@@ -5,10 +5,12 @@ import { useUsers } from '@/hooks/users';
 import dynamic from 'next/dynamic';
 import * as apiFrontEnd from '@/requests/frontend';
 import * as apiBackEnd from '@/requests/backEnd';
+import useTranslation from 'next-translate/useTranslation';
 
 const Modal = dynamic(() => import('@/components/modal'));
 
 export default function indexPage({ ssrData }) {
+    const { t, lang } = useTranslation('common');
     const modalRef = {};
     const [state, dispatch] = useGlobalState();
     const { data, filter, setFilter } = useUsers({
@@ -23,6 +25,7 @@ export default function indexPage({ ssrData }) {
     return (
         <>
             <div className={`container mx-auto`}>
+                <p>{t('variable-example', { count: 42 })}</p>
                 <Button
                     onClick={() => {
                         dispatch({
