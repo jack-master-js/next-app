@@ -15,7 +15,8 @@ export default function MyApp({ Component, pageProps }) {
                 <title>Next APP</title>
                 {/* <script src="/config.js"></script> */}
             </Head>
-            {/* <Script src="/config.js" strategy="afterInteractive" /> */}
+            {/* load remote script */}
+            {/* <Script src="https://google.com" strategy="afterInteractive" /> */}
             <SWRConfig
                 value={{
                     fetcher,
