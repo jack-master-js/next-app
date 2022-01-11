@@ -8,12 +8,12 @@ import { StateProvider } from '@/hooks/global';
 import 'antd/dist/antd.min.css';
 import './_app.scss';
 
-export default function myApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
                 <title>Next APP</title>
-                <script src="/config.js"></script>
+                {/* <script src="/config.js"></script> */}
             </Head>
             {/* <Script src="/config.js" strategy="afterInteractive" /> */}
             <SWRConfig

@@ -1,3 +1,3 @@
-export default function myLayout({ children }) {
+export default function Layout({ children }) {
     return <>{children}</>;
 }

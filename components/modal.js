@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Modal, Button } from 'antd';
 import { useGlobalState } from '@/hooks/global';
 
-export default function myModal({ onRef }) {
+export default function MyModal({ onRef }) {
     const [state, dispatch] = useGlobalState();
     const [isModalVisible, setIsModalVisible] = useState(false);
 
