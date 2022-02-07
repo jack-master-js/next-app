@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './color.scss';
+@import './icons.scss';
+
 .my-text {
     width: 200px;
     @apply text-lg text-justify leading-8;

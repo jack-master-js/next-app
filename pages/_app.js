@@ -1,18 +1,23 @@
 import { SWRConfig } from 'swr';
 import Head from 'next/head';
 // import Script from 'next/script';
-import Layout from '@/components/layout';
+import MainLayout from '@/layouts/main';
 import fetcher from '@/utils/fetcher-frontend';
 import { StateProvider } from '@/hooks/global';
 
 import 'antd/dist/antd.min.css';
-import './_app.scss';
+import '../styles/main.scss';
 
-export default function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
     return (
         <>
             <Head>
                 <title>Next APP</title>
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+                />
                 {/* <script src="/config.js"></script> */}
             </Head>
             {/* load remote script */}
@@ -24,9 +29,9 @@ export default function MyApp({ Component, pageProps }) {
                 }}
             >
                 <StateProvider>
-                    <Layout>
+                    <MainLayout>
                         <Component {...pageProps} />
-                    </Layout>
+                    </MainLayout>
                 </StateProvider>
             </SWRConfig>
         </>
