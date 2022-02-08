@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { SWRConfig } from 'swr';
 import Head from 'next/head';
 // import Script from 'next/script';
-import Layout from '@/layouts';
+import Layout from '@/layouts/index';
 import fetcher from '@/utils/fetcher-frontend';
 import { StateProvider } from '@/hooks/global';
 import setLanguage from 'next-translate/setLanguage';
