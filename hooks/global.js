@@ -3,6 +3,7 @@ import { produce } from 'immer';
 
 //initial
 const initialState = {
+    isLoading: false,
     user: {
         name: 'global user',
     },
@@ -16,11 +17,16 @@ function reducer({ user }, action) {
     };
 }
 
-function userReducer(user, action) {
+function userReducer(user, { type, payload }) {
     return produce(user, (draft) => {
-        switch (action.type) {
+        switch (type) {
+            case 'set_loading': {
+                draft.isLoading = payload;
+                break;
+            }
+
             case 'change_name': {
-                draft.name = action.payload;
+                draft.name = payload;
                 break;
             }
 
