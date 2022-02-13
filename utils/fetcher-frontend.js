@@ -1,8 +1,7 @@
 import qs from 'query-string';
 import store from 'store';
-import { message } from 'antd';
 
-export default (url, params, method = 'GET', headers = {}) => {
+export default function fetcher(url, params, method = 'GET', headers = {}) {
     let body = '';
     let options = {
         method: method.toUpperCase(),
@@ -37,8 +36,7 @@ export default (url, params, method = 'GET', headers = {}) => {
                 resolve(json);
             })
             .catch((e) => {
-                message.error(e.message);
                 reject(e.message);
             });
     });
-};
+}

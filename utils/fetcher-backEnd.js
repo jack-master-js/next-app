@@ -1,6 +1,6 @@
 import qs from 'query-string';
 
-export default (url, params, method = 'GET', headers = {}) => {
+export default function fetcher(url, params, method = 'GET', headers = {}) {
     let body = '';
     let options = {
         method: method.toUpperCase(),
@@ -37,4 +37,4 @@ export default (url, params, method = 'GET', headers = {}) => {
                 reject(e.message);
             });
     });
-};
+}
