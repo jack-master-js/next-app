@@ -6,14 +6,34 @@ import Layout from '@/layouts/index';
 import fetcher from '@/utils/fetcher-frontend';
 import { StateProvider } from '@/hooks/global';
 import setLanguage from 'next-translate/setLanguage';
+import { useRouter } from 'next/router';
+import { logEvent } from '@/utils/firebase';
+import TagManager from 'react-gtm-module';
 
 import 'antd/dist/antd.min.css';
 import '../styles/main.scss';
 
 export default function App({ Component, pageProps }) {
+    const router = useRouter();
+
     useEffect(() => {
         setLanguage('en');
+        // live chat
+        if (process.env.NEXT_PUBLIC_GTM) {
+            TagManager.initialize({ gtmId: 'xxxx' });
+        }
     });
+    useEffect(() => {
+        // track route changes
+        const handler = (url) =>
+            logEvent('page_view', {
+                page_location: url,
+                page_title: document?.title,
+            });
+
+        router.events.on('routeChangeStart', handler);
+        return () => router.events.off('routeChangeStart', handler);
+    }, [router.events]);
     return (
         <>
             <Head>
