@@ -5,9 +5,10 @@ import Head from 'next/head';
 import Layout from '@/layouts/index';
 import fetcher from '@/utils/fetcher-frontend';
 import { StateProvider } from '@/hooks/global';
+import { StateContext } from '@/context/StateContext';
 import setLanguage from 'next-translate/setLanguage';
 import { useRouter } from 'next/router';
-import { logEvent } from '@/utils/firebase';
+// import { logEvent } from '@/utils/firebase';
 import TagManager from 'react-gtm-module';
 
 import 'antd/dist/antd.min.css';
@@ -26,10 +27,10 @@ export default function App({ Component, pageProps }) {
     useEffect(() => {
         // track route changes
         const handler = (url) =>
-            logEvent('page_view', {
-                page_location: url,
-                page_title: document?.title,
-            });
+            // logEvent('page_view', {
+            //     page_location: url,
+            //     page_title: document?.title,
+            // });
 
         router.events.on('routeChangeStart', handler);
         return () => router.events.off('routeChangeStart', handler);
@@ -53,11 +54,13 @@ export default function App({ Component, pageProps }) {
                     revalidateOnFocus: false,
                 }}
             >
-                <StateProvider>
-                    <Layout>
-                        <Component {...pageProps} />
-                    </Layout>
-                </StateProvider>
+                <StateContext>
+                    <StateProvider>
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </StateProvider>
+                </StateContext>
             </SWRConfig>
         </>
     );
