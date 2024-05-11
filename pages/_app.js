@@ -5,7 +5,6 @@ import Head from 'next/head';
 import Layout from '@/layouts/index';
 import fetcher from '@/utils/fetcher-frontend';
 import { StateProvider } from '@/hooks/global';
-import { StateContext } from '@/context/StateContext';
 import setLanguage from 'next-translate/setLanguage';
 import { useRouter } from 'next/router';
 // import { logEvent } from '@/utils/firebase';
@@ -32,7 +31,7 @@ export default function App({ Component, pageProps }) {
             //     page_title: document?.title,
             // });
 
-        router.events.on('routeChangeStart', handler);
+            router.events.on('routeChangeStart', handler);
         return () => router.events.off('routeChangeStart', handler);
     }, [router.events]);
     return (
@@ -54,13 +53,11 @@ export default function App({ Component, pageProps }) {
                     revalidateOnFocus: false,
                 }}
             >
-                <StateContext>
-                    <StateProvider>
-                        <Layout>
-                            <Component {...pageProps} />
-                        </Layout>
-                    </StateProvider>
-                </StateContext>
+                <StateProvider>
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                </StateProvider>
             </SWRConfig>
         </>
     );
