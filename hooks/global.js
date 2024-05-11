@@ -46,6 +46,17 @@ const StateContext = createContext();
 
 //Provider
 export const StateProvider = ({ children }) => (
+    // const [isLoading, setLoading] = useState(false);
+    // return (
+    //     <StateContext.Provider
+    //         value={{
+    //             isLoading,
+    //             setLoading,
+    //         }}
+    //     >
+    //         {children}
+    //     </StateContext.Provider>
+    // );
     <StateContext.Provider value={useReducer(reducer, initialState)}>
         {children}
     </StateContext.Provider>
